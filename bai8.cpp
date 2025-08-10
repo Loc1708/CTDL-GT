@@ -49,7 +49,28 @@ using namespace std;
 		 s.top--;
  }
 
+//chuyen doi so
+ // chuyen doi tu tat ca moi thu
+ void convert(Stack &s, int number, int index)
+ {
+	 char meo[] = { 'A','B','C','D','E','F' };
+	 int temp = number;
+	 while (temp != 0)
+	 {
 
+		pushStack(s, temp % index);
+		 temp /= index;
+	 }
+	 while (!isEmpty(s))
+	 {
+		 int t = getStack(s);
+		 if (t >= 10)
+			 cout << meo[t - 10] << "\t";
+		 else
+			 cout << t << "\t";
+		 popstack(s);
+	 }
+ }
 
 int main()
 {
@@ -69,3 +90,4 @@ int main()
 
 	return 0;
 }
+
